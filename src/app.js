@@ -18,14 +18,6 @@ app.get("/livros/:id", async (req, res) => {
     }
 });
 
-// app.post("/livros", async (req, res) => {
-//     try {
-//         const novoLivro = await livro.create(req.body);
-//         res.status(201).json({ message: "livro cadastrado com sucesso", livro: novoLivro });
-//     } catch (erro) {
-//         res.status(500).json({ message: erro.message });
-//     }
-// });
 
 app.put("/livros/:id", async (req, res) => {
     try {
