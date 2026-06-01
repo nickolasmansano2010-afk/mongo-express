@@ -1,13 +1,19 @@
 import express from "express";
-import livro from "./models/Livro.js";
+import conectaNaBase from "./config/dbConnect.js";
+import routes from "./routes/index.js";
 
-const app = express();
-app.use(express.json())
+const conexao = await conectaNaBase();
 
-app.get('/', (req, res) => {
-    res.status(200).send('curso de node.js');
+conexao.on("error", (erro) => {
+    console.error("erro de conexao", erro);
 });
 
+conexao.once("open", () => {
+    console.log("conexao com o banco feita com sucesso");
+});
+
+const app = express();
+routes(app);
 
 app.get("/livros/:id", async (req, res) => {
     try {
