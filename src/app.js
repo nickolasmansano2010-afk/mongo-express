@@ -16,13 +16,4 @@ conexao.once("open", () => {
 const app = express();
 routes(app);
 
-app.delete("/livros/:id", async (req, res) => {
-    try {
-        await livro.findByIdAndDelete(req.params.id);
-        res.status(200).send("livro excluido");
-    } catch (erro) {
-        res.status(500).json({ message: erro.message });
-    }
-});
-
 export default app

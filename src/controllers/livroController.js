@@ -17,7 +17,7 @@ static async listarLivroPorId (req, res) {
         const livroEncontrado = await livro.findById(id);
       res.status(200).json(livroEncontrado)
   } catch (erro) {
-    res.status(500).json({ message: `${erro.message } - falha na requisicao do }` });
+    res.status(500).json({ message: `${erro.message } - falha na requisicao do livro}` });
   }
 }
 
