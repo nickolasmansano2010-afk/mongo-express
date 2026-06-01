@@ -29,6 +29,7 @@ static async listarLivroPorId (req, res) {
         res.status(500).json({ message: erro.message });
     }
   }
+  
  static async atualizarLivro (req, res) {
     try {
       const id = req.params.id;
@@ -36,6 +37,16 @@ static async listarLivroPorId (req, res) {
       res.status(200).json({ message: "livro atualizado com sucesso" });
     } catch (erro) {
       res.status(500).json({ message: `${erro.message } - falha na atualizacao do livro}` });
+    }
+  }
+
+ static async deletarLivro (req, res) {
+    try {
+      const id = req.params.id;
+      await livro.findByIdAndDelete(id);
+      res.status(200).json({ message: "livro excluido com sucesso" });
+    } catch (erro) {
+      res.status(500).json({ message: `${erro.message } - falha na exclusao do livro}` });
     }
   }
 };
