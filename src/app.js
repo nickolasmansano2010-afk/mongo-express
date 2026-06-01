@@ -1,7 +1,7 @@
 import express from "express";
 import conectaNaBase from "./dbConnect.js";
 import routes from "./routes/index.js";
-import livros from "./models/Livro.js";
+import livro from "./models/Livro.js";
 
 const conexao = await conectaNaBase();
 
